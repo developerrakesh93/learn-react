@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from "./logo.svg";
+import { useState } from "react";
+import "./App.css";
+import Header from "./components/Layout/Header";
+import SideNavigationBar from "./components/Layout/SideNavigationBar";
+import Footer from "./components/Layout/Footer";
 
 function App() {
+  const [openDrawer, setOpenDrawer] = useState(false);
+  console.log("openDrawer-ApP", openDrawer);
+  const openDrawerHandler = () => {
+    setOpenDrawer(true);
+  };
+  const toggleDrawer = () => {
+    console.log("toggleDrawer");
+    setOpenDrawer(false);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header showDrawer={openDrawerHandler}></Header>
+      {openDrawer ? (
+        <SideNavigationBar
+          left={openDrawer}
+          toggleDrawerHandler={toggleDrawer}
+        ></SideNavigationBar>
+      ) : (
+        ""
+      )}
+      <Footer></Footer>
+    </>
   );
 }
 
