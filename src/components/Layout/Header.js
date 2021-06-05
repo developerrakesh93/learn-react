@@ -4,13 +4,11 @@ import {
   Typography,
   makeStyles,
   IconButton,
-  // Button,
 } from "@material-ui/core";
 import React from "react";
 import MenuIcon from "@material-ui/icons/Menu";
 import classes from "./Header.module.css";
 import { red } from "@material-ui/core/colors";
-// import SideNavigationBar from "./SideNavigationBar";
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -31,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 const Header = (props) => {
   console.log("props in header ", props);
   const { header, logo } = useStyles();
-  const femmecubatorLogo = (
+  const hambergerLogo = (
     <>
       <IconButton
         edge="start"
@@ -49,29 +47,10 @@ const Header = (props) => {
     </>
   );
 
-  // const getMenuButtons = () => {
-  //   return headersData.map(({ label, href }) => {
-  //     return (
-  //       <Button
-  //         {...{
-  //           key: label,
-  //           color: "inherit",
-  //           to: href,
-  //         }}
-  //       >
-  //         {label}
-  //       </Button>
-  //     );
-  //   });
-  // };
-
   return (
     <header>
       <AppBar>
-        <Toolbar>
-          {femmecubatorLogo}
-          {/* {getMenuButtons()} */}
-        </Toolbar>
+        <Toolbar>{hambergerLogo}</Toolbar>
       </AppBar>
     </header>
   );
