@@ -10,7 +10,9 @@ import {
 } from "@material-ui/core";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-
+import DashboardIcon from "@material-ui/icons/Dashboard";
+import AssessmentIcon from "@material-ui/icons/Assessment";
+import ListIcon from "@material-ui/icons/List";
 // const styles = (theme) => ({
 //   list: {
 //     width: 250,
@@ -29,10 +31,12 @@ const sideList = (props) => {
       onKeyDown={props.toggleDrawerHandler}
     >
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+        {["Dashboard", "List of Mutual funds", "Report"].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              {index === 0 ? <DashboardIcon /> : ""}
+              {index === 1 ? <ListIcon /> : ""}
+              {index === 2 ? <AssessmentIcon /> : ""}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
